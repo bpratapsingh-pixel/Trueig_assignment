@@ -13,3 +13,8 @@ console.log(expensiveBikes);
 const totalPrice = bikes.reduce((total, bike) => total + bike.price, 0);
 console.log("Total Price of all bikes:", totalPrice);
 
+const result = bikes.map(bike => bike.price)
+                    .filter(price => price > 100000)
+                    .reduce((total,price) => total +price ,0);
+console.log("Total price of expensive bikes:", result);
+
