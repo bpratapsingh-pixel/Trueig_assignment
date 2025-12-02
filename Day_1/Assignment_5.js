@@ -8,3 +8,5 @@ const bike = function( car){
     car();
 }
 bike(car);
+
+//arrow function binding and normal function binding, create two function greet and getUsername bind username ti greet 
