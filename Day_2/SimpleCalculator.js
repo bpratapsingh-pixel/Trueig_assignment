@@ -1,33 +1,49 @@
-let x=10, y=10;
+// history, callback
 
-let id = 3;
-const add = (x,y) => x+y;
+const calculator = {
+    history:[],
 
-const subtract = (x,y) => x-y;
+    log(operation, x,y,res){
+        this.history.push({
+            operation,
+            intput:[x,y],
+            res
+        })
+    },
 
-const multiply = (x,y) => x*y;
+    add(x,y,callback){
+        let ans = x+y;
+        this.log("Addition",x,y,ans);
+        callback(ans);
+   },
 
-const divide = (x,y) => x/y;
-switch(id){
-    case 1:
-        console.log("Addition:", add(x,y));
-        break;
-    case 2:
-        console.log("Subtraction:", subtract(x,y));
-        break;
-    case 3:
-        console.log("Multiplication:", multiply(x,y));
-        break;
-    case 4:
-        if(y===0){
-            console.log("Division by zero is not allowed");
-            break;
-        }
-        console.log("Division:", divide(x,y));
-        break;
-    default:
-        console.log("Invalid operation id");
+  subtract(x,y,callback){
+        let ans = x-y;
+        this.log("Subtraction",x,y,ans);
+        callback(ans);
+   },
 
+ multiply(x,y,callback){
+        let ans = x*y;
+        this.log("Multiply",x,y,ans);
+        callback(ans);
+   },
+
+ divide(x,y,callback){
+        let ans = x/y;
+        this.log("Addition",x,y,ans);
+        callback(ans);
+   },
 }
 
+const display = (ans) =>{
+    console.log(ans);
+}
 
+calculator.add(10,20,display);
+calculator.subtract(50,23,display);
+calculator.multiply(32,34,display);
+calculator.divide(32,16,display);
+
+console.log("User History:")
+console.log(calculator.history);
