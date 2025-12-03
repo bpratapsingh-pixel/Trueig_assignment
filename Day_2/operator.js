@@ -12,7 +12,7 @@ const user = {
     mobile:"23423434"
 }
 const {name,email,password,address,mobile,...rest} = user;//unpack kar deta h arr or object ,remove this problem calling by .
-console.log(name,email,password,address,mobile)
+console.log(name,email,password,address,mobile)// it is also use as ...rest for infinite no. of parameters
 console.log(rest)
 
 //rest operator
